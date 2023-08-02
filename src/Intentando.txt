@@ -1,0 +1,21 @@
+Un componente es lo Visual de la pagina.
+
+
+
+Componentes: 
+
+1- Son funciones.
+2- Van en Mayuscula.
+3- Todos tienen retorno.
+4- Siempre deben retornar un solo elemento.
+
+
+
+Se remplazara class por className.
+
+
+Podremos crear otros componentes para:
+
+  Bloques estructurales de la pagina
+  Bloques reutilizables
+
