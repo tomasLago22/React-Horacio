@@ -19,7 +19,7 @@ function App() {
       <NavBar/>
       <Main/>
       <Footer/>
-      <ItemListContainer/>
+      <ItemListContainer mensaje={"El mundo del Calzado"}/>
     </>
   );
 }
