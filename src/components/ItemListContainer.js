@@ -1,32 +1,29 @@
-import { useState, useEffect } from 'react'
-import { getProducts, getProductsByCategory } from './Productos'
-import ItemList from    "./ItemList"
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { getProducts, getProductsByCategory } from './Productos';
+import ItemList from "./ItemList";
+import { useParams } from 'react-router-dom';
 
+const ItemListContainer = ({ greeting }) => {
+    const [productos, setProductos] = useState([]);
+    const { categoriaId } = useParams(); // Obtener el valor de categoriaId desde la URL
 
-const ItemListContainer = ({greeting}) =>{
-    const [productos, setProductos] = useState([])
+    useEffect(() => {
+        const asyncFunc = categoriaId ? getProductsByCategory : getProducts;
+        asyncFunc(categoriaId)
+            .then(response => {
+                setProductos(response);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, [categoriaId]);
 
-    const {categoriaId} = useParams
-
-
-useEffect(() => {
-    const asyncFunc = categoriaId ? getProductsByCategory : getProducts
-    asyncFunc(categoriaId)
-    .then(response =>{
-        setProductos(response)
-    })
-    .catch(error =>{
-        console.error(error)
-    })
-}, [categoriaId])
-
-return (
-    <>
-    <h1>{greeting}</h1>
-    <ItemList productos={productos} />
-    </>
-)
-
+    return (
+        <>
+            <h1>{greeting}</h1>
+            <ItemList productos={productos} />
+        </>
+    );
 }
-export default ItemListContainer
+
+export default ItemListContainer;
