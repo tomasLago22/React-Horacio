@@ -19,3 +19,61 @@ Podremos crear otros componentes para:
   Bloques estructurales de la pagina
   Bloques reutilizables
 
+
+
+usseEfect
+
+quiero ejecutrar algo en el componente , ej un pedido a la api, pero que que se ejecute una unica vez, utilizo un efecto 
+import { useEffect } from "react"
+
+function Container (){
+
+    //estados
+    const [data, setData] = useData([])
+
+
+    //efectos: un hook para hacer pedidos a la api
+    //Quiero ejecutar algo en el componente, por ej pedido a la api, pero que se ejecute una sola vez
+    //utlizo useEffect(function,array) al array se le llama array de dependencia, ya que ejecuta lo que este envolviendo tantas veces como el array cambie, tus efectos dependen del array para si vos queres volver a ejecutarlo 
+    useEffect(()=>{
+        getPrudoctos()
+    },[])
+
+
+    const getPrudoctos = () => {
+
+    }
+
+
+}
+
+HTTP Y FETCH
+
+FETCH SIRVE PARA ESTABLECER UNA CONEXION CON EL PROTOCOLO HTTTP.
+
+HTTP ES UN PROTOCOLO DE COMUNICACION ENTRE CLIENTE Y SERVIDOR, SE USA PARA COMUNICARSE CON EL SERVIDOR. SE UTILIZA PARA HACER PEDIDOS A LA API
+
+
+REQUEST 
+
+-METODO/VERBOS : GET, POST,PUT,DELETE,PATCH,OPTIONS,HEAD
+
+GET: Solicita la recuperación de un recurso específico, como una página web o un archivo, desde el servidor. Los parámetros son incluidos en la URL.
+
+POST: Envía datos al servidor para ser procesados. Por ejemplo, cuando se envían datos de un formulario HTML.
+
+PUT: Actualiza o crea un recurso en el servidor con los datos proporcionados.
+
+DELETE: Solicita al servidor que elimine el recurso especificado.
+
+HEAD: Similar a GET, pero solicita solo los encabezados del recurso sin el cuerpo de los datos.
+
+OPTIONS: Solicita información sobre las opciones de comunicación disponibles para el recurso.
+
+PATCH: Aplica modificaciones parciales a un recurso.
+
+TRACE: Se utiliza para realizar un seguimiento del camino de una solicitud hacia el servidor y obtener información de diagnóstico.
+
+CONNECT: Utilizado para establecer una conexión en red con el servidor a través de un proxy.
+
+RESPONSE

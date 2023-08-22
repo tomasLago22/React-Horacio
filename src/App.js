@@ -1,27 +1,22 @@
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import NavBar from "./components/NavBar"
-
+import React from 'react';
+import NavBar from "./components/NavBar";
 import Footer from './components/Footer';
-
-import Main from './components/Main';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
+import ItemDetallesContainer from './components/ItemDetallesContainer';
 import ItemListContainer from './components/ItemListContainer';
 
-
 function App() {
-
-  //Vista
   return (
-    <> 
-    
+    <BrowserRouter>
       <NavBar/>
-      <Main/>
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting="" />} />
+        <Route path="categoria/:categoriaId" element={<ItemListContainer greeting="" />} />
+        <Route path="item/:itemId" element={<ItemDetallesContainer />} />
+      </Routes>
       <Footer/>
-      <ItemListContainer mensaje={"El mundo del Calzado"}/>
-    </>
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;

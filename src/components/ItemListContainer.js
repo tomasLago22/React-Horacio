@@ -1,16 +1,32 @@
-const ItemListContainer = ({ mensaje }) => {
-    const agregarAlCarrito = () => {
-      console.log('Producto agregado al carrito');
-    };
-  
-    return (
-      <div className="container">
-        <h2 className="text-center">{mensaje}</h2>
-        <button className="btn btn-primary" onClick={agregarAlCarrito}>
-          Agregar al carrito
-        </button>
-      </div>
-    );
-  };
-  
-  export default ItemListContainer;
+import { useState, useEffect } from 'react'
+import { getProducts, getProductsByCategory } from './Productos'
+import ItemList from    "./ItemList"
+import { useParams } from 'react-router-dom'
+
+
+const ItemListContainer = ({greeting}) =>{
+    const [productos, setProductos] = useState([])
+
+    const {categoriaId} = useParams
+
+
+useEffect(() => {
+    const asyncFunc = categoriaId ? getProductsByCategory : getProducts
+    asyncFunc(categoriaId)
+    .then(response =>{
+        setProductos(response)
+    })
+    .catch(error =>{
+        console.error(error)
+    })
+}, [categoriaId])
+
+return (
+    <>
+    <h1>{greeting}</h1>
+    <ItemList productos={productos} />
+    </>
+)
+
+}
+export default ItemListContainer
