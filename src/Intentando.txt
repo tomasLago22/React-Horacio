@@ -77,3 +77,25 @@ TRACE: Se utiliza para realizar un seguimiento del camino de una solicitud hacia
 CONNECT: Utilizado para establecer una conexión en red con el servidor a través de un proxy.
 
 RESPONSE
+
+
+
+
+CONTEXTO API: ES UN API DE REACT QUE NOS PREMITE CREAR UN COTNEXTO GLOBAL PARA NUESTRA APLICACION. ES UN PATRON DE DISEÑO QUE NOS PERMITE PASAR INFORMACION DE UN COMPONENTE PADRE A UN COMPONENTE HIJO, SIN TENES QUE PASAR POR LO COMPONENTES INTERMEDIOS
+
+PASOS A SEGUIR PARA EJECUTARLO: 
+
+1- Crear el componente 
+2- Incluirlo en alguna parte de la aplicacion, con children
+3- Crear un CONTEXTO
+4- Sacarle el provider de adentro
+5- Usar el provider en el componente del paso 1
+6- Pasarle un valor al provider con el prop value
+
+
+IMPLEMENTACION LECTURA DE CONTEXTO :
+
+1- Importar el hook useContext
+2- Importar el contexto (paso 3)
+3-
+4-

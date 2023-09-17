@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const ItemContador = ({ initial, onAdd }) => {
-    const [cantidad, setCantidad] = useState(initial);
+const ItemContador = ({ id, nombre, precio, onAdd }) => {
+    const [cantidad, setCantidad] = useState(1);
 
     const incremento = () => {
         if (cantidad) {
@@ -23,10 +23,10 @@ const ItemContador = ({ initial, onAdd }) => {
                 <button className="ml-2 bg-blue-500 text-white px-2 py-1 rounded-md" onClick={incremento}>+</button>
             </div>
             <div>
-                <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md" onClick={() => onAdd(cantidad)}> Agregar al carrito </button>
+                <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md" onClick={() => onAdd(cantidad)}>Agregar al carrito</button>
             </div>
         </div>
-    )
+    );
 }
 
 export default ItemContador;

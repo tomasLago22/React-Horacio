@@ -1,8 +1,9 @@
-import React, { useState } from 'react';  
-import ItemContador from './ItemContador'; 
+import React from 'react';
+import ItemContador from './ItemContador';
+import { useMiContexto } from "./MiContexto";
 
-const DetallesCard = ({ nombre, img, precio, descripcion, categoria }) => {
-    const [cantidad, setCantidad] = useState(1);
+const DetallesCard = ({ id, nombre, img, precio, descripcion, categoria }) => {
+    const { agregarAlCarrito } = useMiContexto();
 
     return (
         <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden m-4">
@@ -14,7 +15,22 @@ const DetallesCard = ({ nombre, img, precio, descripcion, categoria }) => {
                     {descripcion}
                 </p>
                 <div>
-                    <ItemContador initial={1} onAdd={(cantidad) => console.log(`Agregaste ${cantidad} ${nombre} Al carrito`)} />
+                    <ItemContador
+                        id={id}
+                        nombre={nombre}
+                        precio={precio}
+                        onAdd={(cantidad) => {
+                            agregarAlCarrito({
+                                id,
+                                nombre,
+                                img,
+                                precio,
+                                descripcion,
+                                categoria,
+                                cantidad
+                            });
+                        }}
+                    />
                 </div>
             </div>
         </div>
