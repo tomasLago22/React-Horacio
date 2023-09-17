@@ -24,6 +24,9 @@ if(cantidadTotal === 0){
               <p className='carritoPrecio'>Precio: ${producto.precio}</p>
               <button onClick={() => eliminarDelCarrito(producto.id)} className='botonEliminar'>Eliminar</button>
             </div>
+            <Link to="/checkout">
+          <button>Comprar</button>
+        </Link>
           </li>
           
         ))}
