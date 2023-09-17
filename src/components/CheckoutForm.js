@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../checkout.css'; 
 
 const CheckoutForm = ({ createOrder }) => {
   const [name, setName] = useState('');
@@ -6,40 +7,45 @@ const CheckoutForm = ({ createOrder }) => {
   const [mail, setMail] = useState('');
 
   const handleGenerarOrden = () => {
-    // Validar datos y realizar acciones necesarias antes de generar la orden
+    
 
-    // Luego, llamar a la función proporcionada por el componente Checkout
+    
     createOrder({ name, phone, mail });
   };
 
   return (
-    <div>
-      <h2>Checkout Formulario</h2>
-      <div>
-        <label>Nombre:</label>
+    <div className="checkout-form-container">
+      <h2 className='checkout-nombre'>Checkout Formulario</h2>
+      <div className="form-group">
+        <label htmlFor="name">Nombre:</label>
         <input
           type="text"
+          id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div>
-        <label>Teléfono:</label>
+      <div className="form-group">
+        <label htmlFor="phone">Teléfono:</label>
         <input
           type="text"
+          id="phone"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
       </div>
-      <div>
-        <label>Correo electrónico:</label>
+      <div className="form-group">
+        <label htmlFor="mail">Correo electrónico:</label>
         <input
           type="email"
+          id="mail"
           value={mail}
           onChange={(e) => setMail(e.target.value)}
         />
       </div>
-      <button onClick={handleGenerarOrden}>Generar Orden</button>
+      <button className="generate-order-button" onClick={handleGenerarOrden}>
+        Generar Orden
+      </button>
     </div>
   );
 };

@@ -6,7 +6,8 @@ import ItemDetallesContainer from './components/ItemDetallesContainer';
 import ItemListContainer from './components/ItemListContainer';
 import MiCustomProvider from './components/MiContexto';
 import firebase from './components/firebase';
-import Carrito from './components/Carrito'
+import Carrito from './components/Carrito';
+import Checkout from './components/Checkout'; // Importa el componente Checkout
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/" element={<ItemListContainer greeting="" />} />
           <Route path="categoria/:categoriaId" element={<ItemListContainer greeting="" />} />
           <Route path="item/:itemId" element={<ItemDetallesContainer />} />
-          <Route path="carrito" element={<Carrito />} /> 
+          <Route path="carrito" element={<Carrito />} />
+          <Route path="checkout" element={<Checkout />} /> {/* Agrega esta ruta para Checkout */}
         </Routes>
         <Footer />
       </MiCustomProvider>
